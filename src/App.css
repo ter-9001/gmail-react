@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+input[type= checkbox]
+{
+  opacity: 0;
+}
+
+
+input[type= checkbox]:checked
+{
+  opacity: 1;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

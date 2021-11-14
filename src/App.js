@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import loginEmail from './LoginEmail'
 import { render } from 'react-dom';
+import dadosDeLogin from './database/login.json'
 
 
 
@@ -25,18 +26,87 @@ class App extends Component
 {
   constructor(props) {
   super(props);
-  this.state = {};
+  this.state = 
+  {
+    fase: 'email',
+    email: '',
+    dadosDeLogin: dadosDeLogin,
+    problema: 0
+  };
 }
+enviarDados = () =>
+{
+  var emailChecar = document.getElementById('dados').value;
+  var atualFase = this.state.fase;
+  var proxFase;
+  var a;
+
+
+  if(atualFase == 'email')
+  {    
+      proxFase = 'senha'
+  }
+  if(atualFase == 'senha')
+  {
+    proxFase = 'logado'
+  }   
+
+
+
+                  dadosDeLogin.filter( (obj)=> {
+
+
+                    var a;
+
+                     
+                    if(obj[atualFase] ==  emailChecar)
+                    {
+                      this.setState({
+                        fase: proxFase,
+                        email: emailChecar,
+                        dadosDeLogin: this.state.dadosDeLogin,
+                        problema: 0
+                      })
+              
+                    
+              
+                      document.getElementById('dados').value = null;
+              
+                    }
+                    else
+                    {
+                      this.setState({
+                        fase: this.state.fase,
+                        email: emailChecar,
+                        dadosDeLogin: this.state.dadosDeLogin,
+                        problema: 1
+                      })
+
+
+                    
+                    }
+              
+              
+                })
+        
+
+
+
+}
+
   
 
 render()
 {
+
+  const {fase, email} = this.state;
+
         return(
        
 
              
                 <div>
-                  {loginEmail('senha','gabriel123@gmail.com')}
+                  {fase== 'logado'?  null : loginEmail(fase, email , this.enviarDados, this.state.problema)}
                 </div>
               
                   
