@@ -2,9 +2,10 @@ import React, { Component} from 'react';
 import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
-import loginEmail from './LoginEmail'
+import loginEmail from './loginEmail'
 import { render } from 'react-dom';
 import dadosDeLogin from './database/login.json'
+import Home from './home'
 
 
 
@@ -106,7 +107,9 @@ render()
 
              
                 <div>
-                  {fase== 'logado'?  null : loginEmail(fase, email , this.enviarDados, this.state.problema)}
+                  {fase == 'logado'?  <div> 
+                     <Home/>
+                  </div> : loginEmail(fase, email , this.enviarDados, this.state.problema)}
                 </div>
               
                   

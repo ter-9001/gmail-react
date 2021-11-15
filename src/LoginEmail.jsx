@@ -87,7 +87,7 @@ const letreiroFinalSenha = () =>
 	</div>
 )
 
-//Senha incorreta. Tente novamente ou clique em "Esqueceu a senha?" para redefini-la.
+
 
 
 const alertWarning = (fase) => 
@@ -114,7 +114,7 @@ const alertWarning = (fase) =>
 const loginEmail = (fase, email, enviar, problema) => 
 {
 
-	//alert(problema);
+
 	
 		return(
 
@@ -139,7 +139,7 @@ const loginEmail = (fase, email, enviar, problema) =>
 				
 				<input id="dados" style={{ borderRadius: '4px', color: '#202124', fontSize: '16px', height: '28px', 
 				margin: '10px 1px 0 1px', padding: '13px 15px', zIndex: '1', border: '2px solid #e0e0e0', outline: 'none', width: '378px', font: '400px 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif'}}
-				placeholder={fase=='senha' ? 'Digite sua senha' : 'E-mail ou telefone' }/>
+				placeholder={fase =='senha' ? 'Digite sua senha' : 'E-mail ou telefone' }/>
 				<div style={{display: 'flex', alignItems: 'flex-start', margin: '1px 0 0 17px', fontSize: '12px'}}>
 					{ (problema == 1) ? 
 				 	alertWarning(fase) : 
@@ -147,7 +147,7 @@ const loginEmail = (fase, email, enviar, problema) =>
 					}    
 				</div>
 
-				{fase== 'senha'?  letreiroFinalSenha() : letreiroFinalEmail()}
+				{fase == 'senha'?  letreiroFinalSenha() : letreiroFinalEmail()}
 
 				
 				<div style={{display:'flex', justifyContent: 'space-between',textAlign: 'left', 
@@ -180,6 +180,8 @@ const loginEmail = (fase, email, enviar, problema) =>
 		)
 	
 }
+
+
 
 
 
