@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 import Checkbox from './Checkbox'
 import LogoGmail from './logoGmail'
 import './App.css';
+import emailDados from './database/emails.json'
 
  const nav3 = (e, color) =>
  {
@@ -27,7 +28,7 @@ import './App.css';
 
 const Emails = ({remetente, assunto, texto}) => 
 (
-	<div id='email' style={{display: 'inline-flex', flexDirection: 'row', flexWrap: 'nowrap', alignItems: 'center', padding: '10px 0 10px 0'}}>
+	<div id='email' style={{display: 'inline-flex', flexDirection: 'row', flexWrap: 'nowrap', alignItems: 'center', padding: '0', height: '30px', width: '100%'}}>
 				
 				    <p style={{fontWeight: '800', fontFamily: 'Roboto, RobotoDraft, Helvetica,Arial,sans-serif', width: '160px'}}> {remetente}  </p>
 
@@ -35,9 +36,9 @@ const Emails = ({remetente, assunto, texto}) =>
 						{assunto} 
 					</h>
 
-					<h style={{fontFamily: 'Roboto, RobotoDraft, Helvetica,Arial,sans-serif', margin: '0 0 0 10px', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', flexBasis: '1', width: '200px'}}>
+					<div style={{fontFamily: 'Roboto, RobotoDraft, Helvetica,Arial,sans-serif', margin: '0', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', flexBasis: '1', width: '500px'}}>
 						- {texto}
-					</h>
+					</div>
 				
 	</div>
 )
@@ -65,7 +66,6 @@ const Home = ({email}) =>
 				<div style={{margin: '0 40px 0 0'}}>
 						<LogoGmail/>
 
-						{email}
 				</div>
 
 
@@ -139,10 +139,22 @@ const Home = ({email}) =>
 
 
 				
+					<Emails remetente='Gabriel' assunto='Messagem Importante' texto='Bebe fofo e lindo do meu coração aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'/>
+
 					<Emails remetente='Gabriel' assunto='Messagem Importante' texto='Bebe fofo e lindo do meu coração'/>
 				
 
-				
+				          {
+						  emailDados.map(
+							  (obj) => {
+
+								if(obj.emailDestinatário == email)
+								{
+									return (<Emails remetente={obj.remetente} 
+									assunto={obj.assunto} texto={obj.texto}/> )
+								}
+							  
+						 })}
 
 
 

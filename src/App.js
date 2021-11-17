@@ -53,7 +53,7 @@ enviarDados = () =>
 
 
 
-                 dadosDeLogin.filter( (obj, i)=> {
+                 dadosDeLogin.filter( (obj)=> {
 
                     if(atualFase == 'email')
                     {
