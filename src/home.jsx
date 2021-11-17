@@ -1,19 +1,46 @@
 import { render } from '@testing-library/react'
 import React, { useLayoutEffect } from 'react'
 import ReactDOM from 'react-dom'
+import Checkbox from './Checkbox'
+import LogoGmail from './logoGmail'
+import './App.css';
 
-const LogoGmail = () => 
+ const nav3 = (e, color) =>
+ {
+	 //'#5f0000'
+
+
+	 
+		
+	 var elements = document.getElementsByClassName('nav3'); // get all elements
+	for(var i = 0; i < elements.length; i++){
+		elements[i].style.color = "#5f6368";
+		elements[i].style.backgroundColor = "#ffffff";
+	}
+
+
+
+	e.target.style.color = color;
+	e.target.style.backgroundColor = "#ddd";
+ }   
+	
+
+const Emails = ({remetente, assunto, texto}) => 
 (
-	<div class="gb_oc gb_fe">
-		<a class="gb_ee gb_pc gb_ce" aria-label="Gmail" href="#inbox" title="Gmail">
-			
-			<img class="gb_tc" src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r2.png" srcset="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_1x_r2.png 1x, https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_default_2x_r2.png 2x " alt="" aria-hidden="true" style={{width:'109px', height:'40px'}} />
+	<div id='email' style={{display: 'inline-flex', flexDirection: 'row', flexWrap: 'nowrap', alignItems: 'center', padding: '10px 0 10px 0'}}>
+				
+				    <p style={{fontWeight: '800', fontFamily: 'Roboto, RobotoDraft, Helvetica,Arial,sans-serif', width: '160px'}}> {remetente}  </p>
 
-		</a>
+					<h style={{fontFamily: 'Roboto, RobotoDraft, Helvetica,Arial,sans-serif', margin: '0 0 0 0', fontWeight: '700'}}>
+						{assunto} 
+					</h>
+
+					<h style={{fontFamily: 'Roboto, RobotoDraft, Helvetica,Arial,sans-serif', margin: '0 0 0 10px', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', flexBasis: '1', width: '200px'}}>
+						- {texto}
+					</h>
+				
 	</div>
 )
-
-
 
 
 const Home = () =>
@@ -21,13 +48,15 @@ const Home = () =>
 	
 	
 		return (
-			<div style={{display: 'flex', flexDirection: 'row', width: '100%'}}>
+			<div>
+			<div id= 'navbar1' style={{display: 'flex', flexDirection: 'row', width: '100%'}}>
 				
-				<div  role="button" tabindex="0">
-					<svg focusable="false" viewBox="0 0 24 24">
+				<button style={{background: 'none', border: 'none', margin: '0', padding: '12px', margin: '4px'}} aria-disabled="true">
+					
+					<svg focusable="false" viewBox="0 0 24 24" width= '24px' height='24px'>
 						<path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
 					</svg>
-				</div>
+				</button>
 
 
 
@@ -37,8 +66,13 @@ const Home = () =>
 						<LogoGmail/>
 				</div>
 
+
+				
+
+
 				<div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginLeft: '60px'}}>
 
+							
 
 						<button style={{background: 'none', border: 'none', margin: '0'}} role="button" aria-disabled="true">
 							
@@ -61,6 +95,57 @@ const Home = () =>
 				
 				
 				</div>
+
+
+
+
+
+
+			</div>
+
+			<div id='navbar2'>
+				<Checkbox/>
+
+				<div class="T-I J-J5-Ji nu T-I-ax7 L3" act="20" role="button" tabindex="0" jslog="110081; u014N:cOuCgd,Kr2w4b" data-tooltip="Refresh" aria-label="Refresh" style={{userSelect: 'none'}}><div class="asa"><div class="asf T-I-J3 J-J5-Ji"></div></div></div>
+			</div>
+
+
+			<div id='navbar3' style={{margin: '10px 0 0 10px', display: 'flex', justifyContent: 'left', flexDirection: 'row'}}>
+
+			  <a className = {'nav3'}  onClick={(e) => nav3(e, '#d93025')}>
+				    Primary
+			  </a>
+
+
+
+			  
+			  <a className = {'nav3'}  onClick={(e) => nav3(e, '#1a73e8')} >
+				    Social
+			  </a>
+
+			  
+			  <a className = {'nav3'} onClick={(e) => nav3(e, '#188038')}>
+				    Promations
+			  </a>
+
+
+			</div>
+
+
+
+			<div id='emails' style={{margin:'10px 0 0 10px', fontSize: '.875rem', width: '836px', height: '20px'}}>
+
+
+				
+					<Emails remetente='Gabriel' assunto='Messagem Importante' texto='Bebe fofo e lindo do meu coração'/>
+				
+
+				
+
+
+
+			</div>
+
 
 
 

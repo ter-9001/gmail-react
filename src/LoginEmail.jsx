@@ -1,13 +1,14 @@
 import { render } from '@testing-library/react'
 import React, { useLayoutEffect } from 'react'
 import ReactDOM from 'react-dom'
-import logoGoogle from './logoGoogle'
+import LogoGoogle from './logoGoogle'
+import Checkbox from './Checkbox'
 
 
 
-const letreiroEmail = () => (
+const LetreiroEmail = () => (
 	<div>
-		<p style={{ color: '#202124',    paddingBottom: '0',    paddingTop: '16px',
+		<p style={{ color: '#202124', paddingBottom: '0',    paddingTop: '16px',
 		fontFamily: 'Google Sans, Noto Sans Myanmar UI, arial,sans-serif',   fontSize: '24px', fontWeight: '400', lineHeight: '1.3333',   marginBottom: '0', marginTop: '0'}}>
 		Fazer login
 		</p>
@@ -20,7 +21,7 @@ const letreiroEmail = () => (
 )
 
 
-const letreiroSenha = (email) =>( 
+const LetreiroSenha = (email) =>( 
 		<div>
 			<p style={{ color: '#202124',    paddingBottom: '0',    paddingTop: '16px',
 			fontFamily: 'Google Sans, Noto Sans Myanmar UI, arial,sans-serif',   fontSize: '24px', fontWeight: '400', lineHeight: '1.3333',   marginBottom: '0', marginTop: '0', marginBottom: '10px'}}>
@@ -45,7 +46,7 @@ const letreiroSenha = (email) =>(
 
 
 
-const letreiroFinalEmail = () => 
+const LetreiroFinalEmail = () => 
 (
 	<div>
 				<div  style={{textAlign: 'start', margin: '1px 1px 0 16px'}}>
@@ -75,13 +76,11 @@ const letreiroFinalEmail = () =>
 )
 
 
-const letreiroFinalSenha = () => 
+const LetreiroFinalSenha = () => 
 (
-	<div style={{display:'flex', justifyContent:'start', margin: '5px 1px 0px 17px', alignItems: 'end'}}>
+	<div style={{display:'flex', justifyContent:'start', margin: '5px 1px 0px 17px', alignItems: 'flex-end'}}>
 						
-						<div style={{display: 'flex', alignItems: 'stretch', alignSelf: 'center', justifyContent: 'center',border:'solid 2px #202124', borderRadius: '15%', padding: '0', margin: '0', marginRight: '15px'}}>
-							<input type='checkbox' style={{width: '15px', height: '15px', padding: '0' , margin: '0'}}/>
-						</div>
+						<Checkbox/>
 						
 						<h style={{fontSize:'14px'}}> Mostrar senha </h>
 	</div>
@@ -90,7 +89,7 @@ const letreiroFinalSenha = () =>
 
 
 
-const alertWarning = (fase) => 
+const AlertWarning = (fase) => 
 (
 	<div style={{color: '#d93025', display: 'flex', alignItems: 'flex-start' , alignSelf: 'start', width: '408px'}}>
 		<span style={{marginRight: '10px'}}>
@@ -111,7 +110,7 @@ const alertWarning = (fase) =>
 )
 
 
-const loginEmail = (fase, email, enviar, problema) => 
+const LoginEmail = (fase, email, enviar, problema) => 
 {
 
 
@@ -125,14 +124,14 @@ const loginEmail = (fase, email, enviar, problema) =>
 				<div style={{display: 'flex', justifyContent: 'center', marginTop:'40px'}}>
 
 				
-					{logoGoogle}
+					{<LogoGoogle/>}
 
 
 
 				</div>
 
 
-				{ (fase== 'senha') ?  letreiroSenha(email) : letreiroEmail()}
+				{ (fase== 'senha') ?  LetreiroSenha(email) : LetreiroEmail()}
 
 
 
@@ -142,12 +141,12 @@ const loginEmail = (fase, email, enviar, problema) =>
 				placeholder={fase =='senha' ? 'Digite sua senha' : 'E-mail ou telefone' }/>
 				<div style={{display: 'flex', alignItems: 'flex-start', margin: '1px 0 0 17px', fontSize: '12px'}}>
 					{ (problema == 1) ? 
-				 	alertWarning(fase) : 
+				 	AlertWarning(fase) : 
 				 	null
 					}    
 				</div>
 
-				{fase == 'senha'?  letreiroFinalSenha() : letreiroFinalEmail()}
+				{fase == 'senha'?  LetreiroFinalSenha() : LetreiroFinalEmail()}
 
 				
 				<div style={{display:'flex', justifyContent: 'space-between',textAlign: 'left', 
@@ -185,4 +184,4 @@ const loginEmail = (fase, email, enviar, problema) =>
 
 
 
-export default loginEmail;
+export default LoginEmail;

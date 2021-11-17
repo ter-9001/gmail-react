@@ -13,6 +13,22 @@ input[type= checkbox]:checked
   opacity: 1;
 }
 
+.nav3
+{
+  font-family: Google Sans, Roboto,RobotoDraft, Helvetica,Arial,sans-serif; 
+  font-size: .875rem;
+  color: #5f6368;
+  width: 256px;
+  height: 56px;
+  line-height: 16px;
+  
+}
+
+
+
+
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
