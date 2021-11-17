@@ -2,10 +2,11 @@ import React, { Component} from 'react';
 import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
-import loginEmail from './loginEmail'
+
 import { render } from 'react-dom';
 import dadosDeLogin from './database/login.json'
 import Home from './home'
+import LoginEmail from './loginEmail';
 
 
 
@@ -30,67 +31,101 @@ class App extends Component
   {
     fase: 'email',
     email: '',
-    problema: 0
+    problema: 0,
+    dados: ''
   };
 }
 enviarDados = () =>
 {
   
   var dadoChecar = document.getElementById('dados').value;
+  document.getElementById('dados').value=''
+
+ 
   var atualFase = this.state.fase;
   var proxFase;
   var a;
   var email;
 
 
-  if(atualFase == 'email')
-  {    
-      proxFase = 'senha'
-      email = dadoChecar 
-  }
-  if(atualFase == 'senha')
-  {
-    proxFase = 'logado'
-  }   
+
+  
 
 
 
-                  dadosDeLogin.filter( (obj)=> {
+                 dadosDeLogin.filter( (obj, i)=> {
+
+                    if(atualFase == 'email')
+                    {
+
+                       if(obj.email == dadoChecar )
+                       {
+                          this.setState({
+                            fase: 'senha',
+                            email: dadoChecar,
+                            problema: 0,
+                            dados: obj
+                          })
 
 
-                    var a;
+                          console.log(dadoChecar)
 
+
+                          
+                          
+                       }
+                       else
+                       {
+                          this.setState({
+                            fase: 'email',
+                            email: '',
+                            problema: 1
+                          })
+                       }
+                       
                      
-                    if(obj[atualFase] ==  dadoChecar)
-                    {
-                      this.setState({
-                        fase: proxFase,
-                        problema: 0,
-                        email: email,
-                        
-                      })
-              
-                    
-              
-                      document.getElementById('dados').value = null;
-              
                     }
-                    else
-                    {
-                      this.setState({
-                        problema: 1,
-                        email: email,
-                        ...this.state
-                      })
 
 
+                  
                     
-                    }
-              
-              
                 })
         
+              
 
+
+                if(atualFase == 'senha')
+                {
+                 
+
+                   if(this.state.dados.senha == dadoChecar )
+                   {
+                    
+
+
+                      this.setState({
+                        fase: 'logado',
+                        email: this.state.email,
+                        problema: 0,
+                        dados: this.state.dados
+                      })
+
+                     
+
+                    
+                   }
+                   else
+                   {
+                      this.setState({
+                        fase: this.state.fase,
+                        email: this.state.email,
+                        problema: 1,
+                        dados: this.state.dados
+                      })
+                   }
+                   
+                 
+                }           
 
 
 }
@@ -102,6 +137,8 @@ render()
 
   const {fase, email, problema} = this.state;
   
+  console.log(email)
+  
 
         return(
        
@@ -111,7 +148,8 @@ render()
                       {
                       fase == 'logado'?  
                         <Home email={email}/> : 
-                        loginEmail(fase, email , this.enviarDados, problema)
+                        <LoginEmail
+                        fase={fase} email={email} enviar={this.enviarDados} problema={problema}/>
                       }
                 </div>
               

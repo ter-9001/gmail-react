@@ -21,7 +21,8 @@ const LetreiroEmail = () => (
 )
 
 
-const LetreiroSenha = (email) =>( 
+const LetreiroSenha = ({email}) =>
+( 
 		<div>
 			<p style={{ color: '#202124',    paddingBottom: '0',    paddingTop: '16px',
 			fontFamily: 'Google Sans, Noto Sans Myanmar UI, arial,sans-serif',   fontSize: '24px', fontWeight: '400', lineHeight: '1.3333',   marginBottom: '0', marginTop: '0', marginBottom: '10px'}}>
@@ -110,7 +111,7 @@ const AlertWarning = (fase) =>
 )
 
 
-const LoginEmail = (fase, email, enviar, problema) => 
+const LoginEmail = ({fase, email, enviar, problema}) => 
 {
 
 
@@ -131,14 +132,14 @@ const LoginEmail = (fase, email, enviar, problema) =>
 				</div>
 
 
-				{ (fase== 'senha') ?  LetreiroSenha(email) : LetreiroEmail()}
+				{ (fase == 'senha') ?  <LetreiroSenha email ={email}/> : <LetreiroEmail/>}
 
 
 
 				
 				<input id="dados" style={{ borderRadius: '4px', color: '#202124', fontSize: '16px', height: '28px', 
 				margin: '10px 1px 0 1px', padding: '13px 15px', zIndex: '1', border: '2px solid #e0e0e0', outline: 'none', width: '378px', font: '400px 16px Roboto,RobotoDraft,Helvetica,Arial,sans-serif'}}
-				placeholder={fase =='senha' ? 'Digite sua senha' : 'E-mail ou telefone' }/>
+				placeholder={fase =='senha' ? 'Digite sua senha' : 'E-mail ou telefone'} />
 				<div style={{display: 'flex', alignItems: 'flex-start', margin: '1px 0 0 17px', fontSize: '12px'}}>
 					{ (problema == 1) ? 
 				 	AlertWarning(fase) : 
@@ -146,7 +147,7 @@ const LoginEmail = (fase, email, enviar, problema) =>
 					}    
 				</div>
 
-				{fase == 'senha'?  LetreiroFinalSenha() : LetreiroFinalEmail()}
+				{fase == 'senha'?  <LetreiroFinalSenha/> : <LetreiroFinalEmail/>}
 
 				
 				<div style={{display:'flex', justifyContent: 'space-between',textAlign: 'left', 
