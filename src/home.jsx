@@ -43,7 +43,7 @@ const Emails = ({remetente, assunto, texto}) =>
 )
 
 
-const Home = () =>
+const Home = ({email}) =>
 {
 	
 	
@@ -64,6 +64,8 @@ const Home = () =>
 
 				<div style={{margin: '0 40px 0 0'}}>
 						<LogoGmail/>
+
+						{email}
 				</div>
 
 

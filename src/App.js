@@ -30,21 +30,23 @@ class App extends Component
   {
     fase: 'email',
     email: '',
-    dadosDeLogin: dadosDeLogin,
     problema: 0
   };
 }
 enviarDados = () =>
 {
-  var emailChecar = document.getElementById('dados').value;
+  
+  var dadoChecar = document.getElementById('dados').value;
   var atualFase = this.state.fase;
   var proxFase;
   var a;
+  var email;
 
 
   if(atualFase == 'email')
   {    
       proxFase = 'senha'
+      email = dadoChecar 
   }
   if(atualFase == 'senha')
   {
@@ -59,13 +61,13 @@ enviarDados = () =>
                     var a;
 
                      
-                    if(obj[atualFase] ==  emailChecar)
+                    if(obj[atualFase] ==  dadoChecar)
                     {
                       this.setState({
                         fase: proxFase,
-                        email: emailChecar,
-                        dadosDeLogin: this.state.dadosDeLogin,
-                        problema: 0
+                        problema: 0,
+                        email: email,
+                        
                       })
               
                     
@@ -76,10 +78,9 @@ enviarDados = () =>
                     else
                     {
                       this.setState({
-                        fase: this.state.fase,
-                        email: emailChecar,
-                        dadosDeLogin: this.state.dadosDeLogin,
-                        problema: 1
+                        problema: 1,
+                        email: email,
+                        ...this.state
                       })
 
 
@@ -99,16 +100,19 @@ enviarDados = () =>
 render()
 {
 
-  const {fase, email} = this.state;
+  const {fase, email, problema} = this.state;
+  
 
         return(
        
 
              
                 <div>
-                  {fase == 'logado'?  <div> 
-                     <Home/>
-                  </div> : loginEmail(fase, email , this.enviarDados, this.state.problema)}
+                      {
+                      fase == 'logado'?  
+                        <Home email={email}/> : 
+                        loginEmail(fase, email , this.enviarDados, problema)
+                      }
                 </div>
               
                   
