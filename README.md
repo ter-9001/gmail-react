@@ -1,70 +1,29 @@
-# Getting Started with Create React App
+# Imitação do Gmail
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma imitação da página de Login do Gmail e também da Home do mesmo provedor de email.
 
-## Available Scripts
+O serviço web a ser imitado pode ser verificado aqui [Gmail]('https://www.gmail.com')
 
-In the project directory, you can run:
+## Login
 
-### `npm start`
+![image]("./Screenshot_43.png")
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ Nesta página o usúario para logar com sucesso deverar digitar o email e senhas disponíveis no arquivo [login.json]('./src/database/login.json')
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `Avisos!`
 
-### `npm test`
+   * Caso o usuário digite um email e/ou senha diverso dos cadastrados aparecerá um aviso idêntico ao que a plataforma do Gmail emite, quando o email digitado não foi encontrado e/ou quando a senha está incorreta
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   * Não é possível cadastra e-mails, senhas **isso será desenvolvido posteriormente**
 
-### `npm run build`
+## Home
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![image]("./Screenshot_43.png")
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Imitação da Home do Gmail, em que pode-se acessar os email por categória armazenados no arquivo [emails.json]('./src/database/emails.json')
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Avisos!`
 
-### `npm run eject`
+   * Não é possível enviar emails pelo sistema **isso será desenvolvido posteriormente**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
