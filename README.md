@@ -2,13 +2,13 @@
 
 Este projeto é uma imitação da página de Login do Gmail e também da Home do mesmo provedor de email.
 
-O serviço web a ser imitado pode ser verificado aqui [Gmail]('https://www.gmail.com')
+O serviço web a ser imitado pode ser verificado aqui [Gmail](https://www.gmail.com)
 
 ## Login
 
-![image]("./Screenshot_43.png")
+![image](./Screenshot_43.png)
 
- Nesta página o usúario para logar com sucesso deverar digitar o email e senhas disponíveis no arquivo [login.json]('./src/database/login.json')
+ Nesta página o usúario para logar com sucesso deverar digitar o email e senhas disponíveis no arquivo [login.json](./src/database/login.json)
 
 ### `Avisos!`
 
@@ -18,9 +18,9 @@ O serviço web a ser imitado pode ser verificado aqui [Gmail]('https://www.gmail
 
 ## Home
 
-![image]("./Screenshot_43.png")
+![image](./Screenshot_43.png)
 
-Imitação da Home do Gmail, em que pode-se acessar os email por categória armazenados no arquivo [emails.json]('./src/database/emails.json')
+Imitação da Home do Gmail, em que pode-se acessar os email por categória armazenados no arquivo [emails.json](./src/database/emails.json)
 
 ### `Avisos!`
 
