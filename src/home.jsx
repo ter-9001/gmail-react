@@ -6,25 +6,7 @@ import LogoGmail from './logoGmail'
 import './App.css';
 import emailDados from './database/emails.json'
 
- const nav3 = (e, color) =>
- {
-	 //'#5f0000'
 
-
-	 
-		
-	 var elements = document.getElementsByClassName('nav3'); // get all elements
-	for(var i = 0; i < elements.length; i++){
-		elements[i].style.color = "#5f6368";
-		elements[i].style.backgroundColor = "#ffffff";
-	}
-
-
-
-	e.target.style.color = color;
-	e.target.style.backgroundColor = "#ddd";
- }   
-	
 
 const Emails = ({remetente, assunto, texto}) => 
 (
@@ -36,15 +18,17 @@ const Emails = ({remetente, assunto, texto}) =>
 						{assunto} 
 					</h>
 
+					<h style={{margin: '0 2px 0 2px'}}> - </h>
+
 					<div style={{fontFamily: 'Roboto, RobotoDraft, Helvetica,Arial,sans-serif', margin: '0', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', flexBasis: '1', width: '500px'}}>
-						- {texto}
+						 {texto}
 					</div>
 				
 	</div>
 )
 
 
-const Home = ({email}) =>
+const Home = ({email, setTipo, tipo}) =>
 {
 	
 	
@@ -114,19 +98,20 @@ const Home = ({email}) =>
 
 			<div id='navbar3' style={{margin: '10px 0 0 10px', display: 'flex', justifyContent: 'left', flexDirection: 'row'}}>
 
-			  <a className = {'nav3'}  onClick={(e) => nav3(e, '#d93025')}>
+			  <a className = {'nav3'}  onClick={setTipo}
+			  style={{color: '#d93025', backgroundColor:'#ddd'}}> 
 				    Primary
 			  </a>
 
 
 
 			  
-			  <a className = {'nav3'}  onClick={(e) => nav3(e, '#1a73e8')} >
+			  <a className = {'nav3'}  onClick={setTipo} > 
 				    Social
 			  </a>
 
 			  
-			  <a className = {'nav3'} onClick={(e) => nav3(e, '#188038')}>
+			  <a className = {'nav3'} onClick={setTipo}>  
 				    Promations
 			  </a>
 
@@ -139,16 +124,13 @@ const Home = ({email}) =>
 
 
 				
-					<Emails remetente='Gabriel' assunto='Messagem Importante' texto='Bebe fofo e lindo do meu coração aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'/>
-
-					<Emails remetente='Gabriel' assunto='Messagem Importante' texto='Bebe fofo e lindo do meu coração'/>
-				
+						
 
 				          {
 						  emailDados.map(
 							  (obj) => {
 
-								if(obj.emailDestinatário == email)
+								if((obj.emailDestinatário == email) && (obj.tipo == tipo))
 								{
 									return (<Emails remetente={obj.remetente} 
 									assunto={obj.assunto} texto={obj.texto}/> )

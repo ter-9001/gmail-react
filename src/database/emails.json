@@ -1,9 +1,26 @@
 [
 	{
-		"remetente": "Bebe",
-		"emailRemetente": "bebefofo123@gmail.com",
-		"assunto": "Fofura",
-		"texto": "Sou bebe fofinho e pequenininho que pareçe um bixinho fofo de olhos brilhantes",
-		"emailDestinatário": "gabriel123@gmail.com"
+		"remetente": "Usuario2",
+		"emailRemetente": "usuario2@gmail.com",
+		"assunto": "Confirmando",
+		"texto": "Email de confirmação do funcionamento do programa de imitação do Gmail",
+		"emailDestinatário": "gabriel123@gmail.com",
+		"tipo": "Primary"
+	},
+	{
+		"remetente": "Empresa A",
+		"emailRemetente": "empresaA@gmail.com",
+		"assunto": "Vendas",
+		"texto": "Este é um email mostrando nosso produtos, confira todos",
+		"emailDestinatário": "gabriel123@gmail.com",
+		"tipo":"Promations"
+	},
+	{
+		"remetente":"Facebook",
+		"emailRemetente":"suport@facebook.com",
+		"assunto":"Nóticias",
+		"texto":"Muitas coisas aconteçeram desde que você logou pela última vez",
+		"emailDestinatário":"gabriel123@gmail.com",
+		"tipo":"Social"
 	}
 ]

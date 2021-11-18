@@ -32,9 +32,50 @@ class App extends Component
     fase: 'email',
     email: '',
     problema: 0,
-    dados: ''
+    dados: '',
+    tipo: 'Primary'
   };
 }
+setTipo = (e) =>
+{
+  
+
+
+  
+   
+  var elements = document.getElementsByClassName('nav3'); 
+ for(var i = 0; i < elements.length; i++){
+   elements[i].style.color = "#5f6368";
+   elements[i].style.backgroundColor = "#ffffff";
+ }
+
+  var tipo = e.target.innerHTML;
+
+
+  switch(tipo)
+  {
+    case 'Primary':
+      this.setState({... this.state, tipo: 'Primary'});
+      e.target.style.color = '#d93025';
+    break;
+    
+    case 'Social':
+      this.setState({... this.state, tipo: 'Social'});
+      e.target.style.color = '#1a73e8';
+    break;
+
+    case 'Promations':
+      this.setState({... this.state, tipo: 'Promations'});
+      e.target.style.color = '#188038';
+    break;
+
+  }
+
+  
+  e.target.style.backgroundColor = "#ddd";
+}
+
+
 enviarDados = () =>
 {
   
@@ -135,7 +176,7 @@ enviarDados = () =>
 render()
 {
 
-  const {fase, email, problema} = this.state;
+  const {fase, email, problema, tipo} = this.state;
   
   console.log(email)
   
@@ -147,7 +188,7 @@ render()
                 <div>
                       {
                       fase == 'logado'?  
-                        <Home email={email}/> : 
+                        <Home email={email} setTipo={(e) => this.setTipo(e)} tipo={tipo}/> : 
                         <LoginEmail
                         fase={fase} email={email} enviar={this.enviarDados} problema={problema}/>
                       }
