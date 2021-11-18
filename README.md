@@ -20,7 +20,7 @@ O serviço web a ser imitado pode ser verificado aqui [Gmail](https://www.gmail.
 
 ![image](./Screenshot_42.png)
 
-Imitação da Home do Gmail, em que pode-se acessar os email por categória armazenados no arquivo [emails.json](./src/database/emails.json)
+Imitação da Home do Gmail, em que pode-se acessar os email por categória (_Primary, Social, Promations_) armazenados no arquivo [emails.json](./src/database/emails.json)
 
 ### `Avisos!`
 
